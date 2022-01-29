@@ -1,0 +1,9 @@
+.hero_container {
+    padding: 30px;
+    /* background-image: url('https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fentries%2Ficons%2Foriginal%2F000%2F002%2F058%2Fmeme.jpg');
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    background-color: (0,0,0,1); */
+    background-color: #1abc9c;
+    color: white;
+}

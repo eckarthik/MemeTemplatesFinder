@@ -1,0 +1,30 @@
+.signup_card {
+    margin: auto;
+    width: 500px;
+    margin-top:30px;
+}
+.signup_card_header {
+    background-color: #e74c3c;
+    text-align: center;
+    color: white;
+}
+.inline_form_inputs {
+    display: flex;
+}
+.inline_form_inputs div {
+    margin-right:10px;
+}
+.signup_button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .signup_card {
+        width: 75%;
+        font-size: 12px;
+    }
+    
+}
