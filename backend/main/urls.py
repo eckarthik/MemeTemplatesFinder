@@ -7,5 +7,6 @@ urlpatterns = [
     path('movie', views.search_templates_by_hashtag),
     path("signup", views.create_user),
     path("login", views.login_user),
-    path("toptemplates", views.get_random_templates)
+    path("toptemplates", views.get_random_templates),
+    path("getuser",views.get_authenticated_user_details)
 ]

@@ -123,7 +123,23 @@ def login_user(request):
             'user_id': user.pk,
             'email': user.email,
             'first_name': user.first_name,
-            'last_name': user.last_name
-        })
+            'last_name': user.last_name,
+            'username': user.username
+        },status=status.HTTP_200_OK)
     else:
         return Response({"error": "Invalid username or password"}, status=status.HTTP_403_FORBIDDEN)
+
+@api_view(['GET'])
+def get_authenticated_user_details(request):
+    user = request.user
+    auth = request.auth
+    if auth:
+        return Response({
+            'user_id': user.pk,
+            'email': user.email,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'username': user.username
+        },status=status.HTTP_200_OK)
+    else:
+        return Response({"error":"Unauthorized"},status=status.HTTP_403_FORBIDDEN)

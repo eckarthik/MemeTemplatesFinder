@@ -1,6 +1,9 @@
 import { Nav, Navbar, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../../store/auth-context";
 const MainHeader = () => {
+  const authContext = useContext(AuthContext);
   return (
     <Navbar
       collapseOnSelect
@@ -23,14 +26,26 @@ const MainHeader = () => {
             Dank memes
           </Nav.Link>
         </Nav>
-        <Nav>
-          <Nav.Link as={Link} to="/login">
-            <Button variant="outline-info">Login</Button>
-          </Nav.Link>
-          <Nav.Link as={Link} to="/signup">
-            <Button variant="outline-danger">Sign Up</Button>
-          </Nav.Link>
-        </Nav>
+        {!authContext.isLoggedIn && (
+          <Nav>
+            <Nav.Link as={Link} to="/login">
+              <Button variant="outline-info">Login</Button>
+            </Nav.Link>
+            <Nav.Link as={Link} to="/signup">
+              <Button variant="outline-danger">Sign Up</Button>
+            </Nav.Link>
+          </Nav>
+        )}
+        {authContext.isLoggedIn && authContext.firstName && (
+          <Nav>
+            <Navbar.Text style={{color:"white",paddingTop:"15px"}}>
+              Hello {authContext.firstName + " " + authContext.lastName}
+            </Navbar.Text>
+            <Nav.Link as={Link} to="/signup">
+              <Button variant="outline-danger" onClick={() => authContext.logout()}>Logout</Button>
+            </Nav.Link>
+          </Nav>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );
